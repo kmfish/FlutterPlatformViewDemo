@@ -112,7 +112,7 @@ So far we can make a conclusion is that FlutterEnginePluginRegistry's detachFrom
 # three test cases
 - PlatformView + FlutterFragment + FlutterEngine, when view destroy, crashed
 - PlatformView + FlutterActivity + FlutterEngine, when view destroy, crashed
-- PlatformView + io.flutter.app.FlutterActivity + FlutterNativeView, when view destroy, it's ok ([Flutter offical: Shift FlutterNativeView to FlutterEngine](https://github.com/flutter/flutter/issues/21785))
+- PlatformView + io.flutter.app.FlutterActivity + FlutterNativeView, when view destroy, it's ok (this case may be deprecated.[Flutter offical: Shift FlutterNativeView to FlutterEngine](https://github.com/flutter/flutter/issues/21785))
 
 
 These test cases can verify our conclusions above.
