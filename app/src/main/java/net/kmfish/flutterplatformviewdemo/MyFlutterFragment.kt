@@ -70,7 +70,7 @@ class MyFlutterFragment : FlutterFragment() {
     override fun onDestroy() {
         Log.d(TAG, "onDestroy")
         val flutterEngine = flutterEngine
-        // fix flutter bug:
+        // fix flutter bug: https://github.com/flutter/flutter/issues/48063
 //        flutterEngine?.platformViewsController?.onFlutterViewDestroyed()
         super.onDestroy()
     }
