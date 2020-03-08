@@ -20,13 +20,13 @@ class MyFlutterFragment : FlutterFragment() {
     override fun configureFlutterEngine(flutterEngine: FlutterEngine) {
         super.configureFlutterEngine(flutterEngine)
         Log.d(TAG, "configureFlutterEngine: $flutterEngine")
-        registerChatViewPlugin(context, flutterEngine)
+//        registerChatViewPlugin(context, flutterEngine)
     }
 
     override fun cleanUpFlutterEngine(flutterEngine: FlutterEngine) {
         super.cleanUpFlutterEngine(flutterEngine)
         Log.d(TAG, "cleanUpFlutterEngine")
-        unregisterChatViewPlugin(flutterEngine)
+//        unregisterChatViewPlugin(flutterEngine)
     }
 
     private fun registerChatViewPlugin(context: Context, engine: FlutterEngine) {
