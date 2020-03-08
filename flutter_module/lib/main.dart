@@ -100,7 +100,7 @@ class _MyHomePageState extends State<MyHomePage> {
             ),
             Container(
               height: 300,
-              child: PlatformTextWidget(text: "AAAABBB",),
+              child: PlatformTextWidget(text: "AAAABBB"),
             )
           ],
         ),

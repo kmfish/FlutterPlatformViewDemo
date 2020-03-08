@@ -1,9 +1,9 @@
 package net.kmfish.flutterplatformviewdemo
 
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
+import androidx.appcompat.app.AppCompatActivity
 
 class MainActivity : AppCompatActivity() {
 
@@ -11,8 +11,12 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        findViewById<Button>(R.id.btn_open_flutter)?.setOnClickListener {
-            startActivity(Intent(this, FlutterContainerActivity::class.java))
+        findViewById<Button>(R.id.btn_open_flutter_fragment)?.setOnClickListener {
+            startActivity(Intent(this@MainActivity, FlutterContainerActivity::class.java))
+        }
+
+        findViewById<Button>(R.id.btn_open_flutter_activity)?.setOnClickListener {
+            startActivity(MyFlutterActivity.createDefaultIntent(this@MainActivity))
         }
     }
 }
