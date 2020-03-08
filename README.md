@@ -25,7 +25,7 @@ Doctor summary (to see all details, run flutter doctor -v):
 
 # crash analyze
 crash stack is in FlutterRenderer:
-```
+```java
     private SurfaceTexture.OnFrameAvailableListener onFrameListener = new SurfaceTexture.OnFrameAvailableListener() {
       @Override
       public void onFrameAvailable(@NonNull SurfaceTexture texture) {
@@ -43,7 +43,7 @@ crash stack is in FlutterRenderer:
 it indicated the 'released' flag is still true after view destroyed.  FlutterRenderer.release be called in VirtualDisplayController.dispose().
 
 In VirtualDisplayController:
-```
+```java
     public void dispose() {
         PlatformView view = presentation.getView();
         // Fix rare crash on HuaWei device described in: https://github.com/flutter/engine/pull/9192
@@ -58,7 +58,7 @@ In VirtualDisplayController:
 VirtualDisplayController.dispose() be called in PlatformViewsController.
 
 In PlatformViewsController:
-```
+```java
 public void onFlutterViewDestroyed() {
     flushAllViews();
 }
@@ -77,7 +77,7 @@ PlatformViewsController.onFlutterViewDestroyed() be called in FlutterPluginRegis
 so I compared between FlutterEnginePluginRegistry & FlutterPluginRegistry:
 
 In FlutterEnginePluginRegistry:
-```
+```java
   @Override
   public void detachFromActivity() {
     if (isAttachedToActivity()) {
@@ -98,7 +98,7 @@ In FlutterEnginePluginRegistry:
 ```
 
 In FlutterPluginRegistry:
-```
+```java
     public void detach() {
         mPlatformViewsController.detach();
         mPlatformViewsController.onFlutterViewDestroyed();   // here is essential
@@ -119,7 +119,7 @@ These test cases can verify our conclusions above.
 
 # temporary workaround
 In custom FlutterFragment or FlutterActvity's onDestroy(): 
-```
+```java
     override fun onDestroy() {
         // fix flutter bug: https://github.com/flutter/flutter/issues/48063
         flutterEngine?.platformViewsController?.onFlutterViewDestroyed()  // add this line
