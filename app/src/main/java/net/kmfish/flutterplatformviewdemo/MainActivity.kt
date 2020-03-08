@@ -20,7 +20,7 @@ class MainActivity : AppCompatActivity() {
             startActivity(MyFlutterActivity.createDefaultIntent(this))
         }
 
-        findViewById<Button>(R.id.btn_open_my_flutter_activity)?.setOnClickListener {
+        findViewById<Button>(R.id.btn_open_activity_with_flutter_view)?.setOnClickListener {
             FlutterMain.startInitialization(this)
             startActivity(Intent(this, MyActivity::class.java))
         }
