@@ -2,7 +2,6 @@ package net.kmfish.flutterplatformviewdemo
 
 import android.os.Bundle
 import android.util.Log
-import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.FragmentManager
 import io.flutter.embedding.android.FlutterFragment
@@ -14,14 +13,13 @@ class FlutterContainerActivity : AppCompatActivity() {
     private val TAG_FLUTTER_FRAGMENT = "flutter_fragment"
     private var mFlutterFragment: FlutterFragment? = null
 
-    private var mBottomLayout: View? = null
-    private var mContainerLayout: View? = null
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         Log.d(TAG, "onCreate")
 
         setContentView(R.layout.activity_flutter_container)
+        
+        addFlutterFragment()
     }
 
     override fun onStart() {
@@ -40,16 +38,9 @@ class FlutterContainerActivity : AppCompatActivity() {
 
         // Create and attach a FlutterFragment if one does not exist.
         if (mFlutterFragment == null) {
-//            val newFlutterFragment = FlutterFragment.withCachedEngine(
-//                FlutterEngineFactory.ENGINE_CACHE_ID
-//            ).renderMode(FlutterView.RenderMode.texture)
-//                .destroyEngineWithFragment(true)
-//                .build<FlutterFragment>()
-//            val newFlutterFragment = FlutterFragment
-//                .NewEngineFragmentBuilder(LoveFlutterFragment::class.java)
-//                .build<LoveFlutterFragment>()
-
-            val newFlutterFragment = FlutterFragment.createDefault()
+            val newFlutterFragment = FlutterFragment
+                .NewEngineFragmentBuilder(MyFlutterFragment::class.java)
+                .build<MyFlutterFragment>()
 
             mFlutterFragment = newFlutterFragment
             fragmentManager
@@ -67,7 +58,6 @@ class FlutterContainerActivity : AppCompatActivity() {
     override fun onResume() {
         super.onResume()
         Log.d(TAG, "onResume")
-        addFlutterFragment()
     }
 
     override fun onPause() {

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_module/PlatformTextWidget.dart';
 
 void main() => runApp(MyApp());
 
@@ -97,6 +98,10 @@ class _MyHomePageState extends State<MyHomePage> {
               '$_counter',
               style: Theme.of(context).textTheme.display1,
             ),
+            Container(
+              height: 300,
+              child: PlatformTextWidget(text: "AAAABBB",),
+            )
           ],
         ),
       ),
