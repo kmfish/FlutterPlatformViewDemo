@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_module/PlatformTextWidget.dart';
+import 'package:share_platform_plugin/MDPlatformTextWidget.dart';
 
 void main() => runApp(MyApp());
 
@@ -100,7 +100,7 @@ class _MyHomePageState extends State<MyHomePage> {
             ),
             Container(
               height: 300,
-              child: PlatformTextWidget(text: "AAAABBB",),
+              child: MDPlatformTextWidget(text: "AAAABBB",),
             )
           ],
         ),
