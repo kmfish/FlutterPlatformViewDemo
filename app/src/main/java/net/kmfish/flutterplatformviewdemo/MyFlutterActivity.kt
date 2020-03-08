@@ -36,6 +36,12 @@ class MyFlutterActivity : FlutterActivity() {
         engine.plugins.remove(PublicScreenPlugin::class.java)
     }
 
+    override fun onDestroy() {
+        // fix flutter bug: https://github.com/flutter/flutter/issues/48063
+//        flutterEngine?.platformViewsController?.onFlutterViewDestroyed()
+        super.onDestroy()
+    }
+
     companion object {
         private const val TAG = "MyFlutterActivity"
         fun createDefaultIntent(launchContext: Context): Intent {
