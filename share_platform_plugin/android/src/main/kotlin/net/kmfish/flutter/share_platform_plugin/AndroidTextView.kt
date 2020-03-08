@@ -21,12 +21,7 @@ class AndroidTextView(
     init {
         Log.d(TAG, "init")
         val text = params?.get("text") as CharSequence?
-        mAndroidTextView.text = if (text == null) {
-            text
-        } else {
-            "android native TextView"
-        }
-
+        mAndroidTextView.text = text ?: "android native TextView"
         mAndroidTextView.textSize = 30f
     }
 
