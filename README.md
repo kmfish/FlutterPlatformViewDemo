@@ -119,7 +119,7 @@ These test cases can verify our conclusions above.
 
 # temporary workaround
 In custom FlutterFragment or FlutterActvity's onDestroy(): 
-```java
+```kotlin
     override fun onDestroy() {
         // fix flutter bug: https://github.com/flutter/flutter/issues/48063
         flutterEngine?.platformViewsController?.onFlutterViewDestroyed()  // add this line
