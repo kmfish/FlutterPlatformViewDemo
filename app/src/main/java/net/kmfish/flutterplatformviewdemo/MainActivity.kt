@@ -4,6 +4,7 @@ import android.content.Intent
 import android.os.Bundle
 import android.widget.Button
 import androidx.appcompat.app.AppCompatActivity
+import io.flutter.view.FlutterMain
 
 class MainActivity : AppCompatActivity() {
 
@@ -12,11 +13,16 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
 
         findViewById<Button>(R.id.btn_open_flutter_fragment)?.setOnClickListener {
-            startActivity(Intent(this@MainActivity, FlutterContainerActivity::class.java))
+            startActivity(Intent(this, FlutterContainerActivity::class.java))
         }
 
         findViewById<Button>(R.id.btn_open_flutter_activity)?.setOnClickListener {
-            startActivity(MyFlutterActivity.createDefaultIntent(this@MainActivity))
+            startActivity(MyFlutterActivity.createDefaultIntent(this))
+        }
+
+        findViewById<Button>(R.id.btn_open_my_flutter_activity)?.setOnClickListener {
+            FlutterMain.startInitialization(this)
+            startActivity(Intent(this, MyActivity::class.java))
         }
     }
 }
